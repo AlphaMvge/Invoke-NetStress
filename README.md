@@ -217,8 +217,8 @@ cd C:\Users\Administrator\Documents\Invoke-NetStress
 # Rename default branch to main
 & "C:\Program Files\Git\cmd\git.exe" branch -M main
 
-# Add your GitHub remote (replace with your repository URL)
-& "C:\Program Files\Git\cmd\git.exe" remote add origin https://github.com/<YOUR-USERNAME>/Invoke-NetStress.git
+# Add your GitHub remote
+& "C:\Program Files\Git\cmd\git.exe" remote add origin https://github.com/AlphaMvge/Invoke-NetStress.git
 
 # Push to GitHub
 & "C:\Program Files\Git\cmd\git.exe" push -u origin main

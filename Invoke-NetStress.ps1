@@ -75,7 +75,7 @@
 
 .NOTES
     Author: NetStress Engineering Team
-    Repository: https://github.com/your-org/Invoke-NetStress
+    Repository: https://github.com/AlphaMvge/Invoke-NetStress
     License: MIT
 #>
 
