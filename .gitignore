@@ -1,0 +1,23 @@
+# PowerShell
+*.ps1xml
+*.log
+*.clixml
+
+# Stress test output reports (keep sample/directory structure)
+reports/*.json
+reports/*.csv
+reports/*.html
+!reports/.gitkeep
+NetStress_Latest_Report.csv
+
+# Operating System & IDE Artifacts
+.vscode/
+.idea/
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Temporary build / scratch files
+scratch/
+tmp/
+*.tmp

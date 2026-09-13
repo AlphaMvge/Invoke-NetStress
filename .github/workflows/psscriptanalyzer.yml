@@ -1,0 +1,40 @@
+name: PowerShell Code Quality & Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  lint-and-test:
+    name: Lint and Unit Test
+    runs-on: windows-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Run PSScriptAnalyzer
+        shell: pwsh
+        run: |
+          Install-Module -Name PSScriptAnalyzer -Force -Scope CurrentUser
+          $results = Invoke-ScriptAnalyzer -Path ./Invoke-NetStress.ps1, ./Invoke-NetStress.psm1 -Severity Error, Warning
+          if ($results) {
+            $results | Format-Table -AutoSize
+            $errors = $results | Where-Object { $_.Severity -eq 'Error' }
+            if ($errors.Count -gt 0) {
+              Write-Error "PSScriptAnalyzer detected $($errors.Count) errors."
+              exit 1
+            }
+          } else {
+            Write-Host "PSScriptAnalyzer passed with zero issues."
+          }
+
+      - name: Run Pester Tests
+        shell: pwsh
+        run: |
+          Install-Module -Name Pester -Force -Scope CurrentUser -SkipPublisherCheck
+          $config = [PesterConfiguration]::Default
+          $config.Run.Path = @('./tests/Invoke-NetStress.Tests.ps1')
+          $config.Output.Verbosity = 'Detailed'
+          Invoke-Pester -Configuration $config
