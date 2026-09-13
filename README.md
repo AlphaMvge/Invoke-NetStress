@@ -109,6 +109,19 @@ When a network connection is saturated, buffers in modems, routers, or switches 
 | **D** | $60 - 120\text{ ms}$ | **Poor** | Severe latency surge. High packet buffering. |
 | **F** | $> 120\text{ ms}$ or $>5\%$ loss | **Critical** | Unusable under saturation. Call drops, rubber-banding, timeout errors. |
 
+## ⚡ Quick 1-Command Global Install
+
+You can install `Invoke-NetStress` globally onto your machine with a single PowerShell command — no Git cloning or file extraction required:
+
+```powershell
+irm https://raw.githubusercontent.com/AlphaMvge/Invoke-NetStress/main/install.ps1 | iex
+```
+
+Once installed, you can launch the tool from **any** folder in any PowerShell window:
+```powershell
+Invoke-NetStress
+```
+
 ---
 
 ## 📦 How to Run the Tests
