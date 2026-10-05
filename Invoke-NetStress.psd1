@@ -1,6 +1,6 @@
 @{
     RootModule = 'Invoke-NetStress.psm1'
-    ModuleVersion = '1.0.0'
+    ModuleVersion = '1.1.0'
     GUID = 'a89c7451-b0e1-4c72-9bfa-b9560f7823e4'
     Author = 'AlphaMvge'
     CompanyName = 'AlphaMvge'
